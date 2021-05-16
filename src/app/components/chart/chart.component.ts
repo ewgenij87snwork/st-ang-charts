@@ -18,23 +18,23 @@ export class ChartComponent implements OnInit {
   ngOnInit(): void {
     this.httpClient.get<PointDto[]>("assets/data.json")
       .subscribe((data) => {
-        const labelsFromJson = data.map(point => point.rating)
-        const uniqueLabels = Array.from(new Set(labelsFromJson));
+        const labelsArray = data.map(point => point.rating);
+        const dataArray = data.map(point => point.ltvLift);
+        const uniqueLabels = Array.from(new Set(labelsArray));
 
         this.dataFromJson = {
           labels: uniqueLabels,
           datasets: [
-
+            {
+              label: "1 Previous Order",
+              data: dataArray,
+              borderColor: 'rgb(66, 133, 244)',
+              backgroundColor: 'rgb(66, 133, 244)',
+              fill: true
+            }
           ]
-
         }
-        console.log(this.dataFromJson)
       })
 
-    // this.chart = new Chart("canvas", {
-    //   type: "line",
-    //   data: this.dataJson,
-    //   options
-    // })
   }
 }
