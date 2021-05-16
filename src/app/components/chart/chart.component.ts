@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {PointDto} from "../../rest/point.dto";
 
 @Component({
   selector: 'app-chart',
@@ -7,16 +8,14 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./chart.component.scss']
 })
 export class ChartComponent implements OnInit {
-  data: any;
+  data: PointDto[];
 
   constructor(private httpClient: HttpClient) {}
 
   ngOnInit(): void {
-    this.httpClient.get<any>("assets/data.json")
+    this.httpClient.get<PointDto[]>("assets/data.json")
       .subscribe((data) => {
         this.data = data;
-        console.log(this.data)
       })
   }
-
 }
