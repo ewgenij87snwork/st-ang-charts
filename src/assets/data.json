@@ -1,8 +1,9 @@
-[{
-  "prevOrders": "1",
-  "ltvLift": -44.69,
-  "rating": 1
-},
+[
+  {
+    "prevOrders": "1",
+    "ltvLift": -44.69,
+    "rating": 1
+  },
   {
     "prevOrders": "1",
     "ltvLift": -13.21,
